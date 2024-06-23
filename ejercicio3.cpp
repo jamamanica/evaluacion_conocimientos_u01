@@ -1,27 +1,30 @@
 #include<iostream>
 using namespace std;
 
-int suma(int a);
+void suma(int a);
 int factorial(int b);
 
 int main(){
     int n,sum;
-    cout<<"Valor de n: "; cin>>n;
-    sum=suma(n);
-    cout<<"La sumatoria es: "<<sum;
+    cout<<"<<SUMATORIA>>"<<endl;
+    cout<<"Numero natural para el valor de n: "; cin>>n;
+    if(n>0){
+        suma(n);
+    } else
+        cout<<"ERROR. Numero no valido";
     return 0;
 }
 int factorial(int b){
-    int f=1;
-    for(int j=2;j<=b;j++){
-        f=f*j;
-    }
-    return f;
+    if(b==0){
+        b=1;
+    } else
+        b=b*factorial(b-1);
+    return b;
 }
-int suma(int a){
+void suma(int a){
     float s=0;
     for(int i=1;i<=a;i++){
         s=s+(float(factorial(i))/(2*i));
     }
-    return s;
+    cout<<"La sumatoria es: "<<s;
 }
